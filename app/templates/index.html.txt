@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FitBuddy AI</title>
+    <style>
+        body { font-family: Arial; background: #f0f2f5; padding: 30px; }
+        .box { background: white; padding: 20px; max-width: 500px; margin: auto; border-radius: 10px; }
+        input, select { width: 100%; padding: 10px; margin: 8px 0; }
+        button { background: blue; color: white; padding: 12px; width: 100%; border: none; border-radius: 5px; }
+        .plan { margin-top: 20px; background: #e8ffe8; padding: 15px; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>FitBuddy AI - Plan Generator</h2>
+        <form action="/generate" method="post">
+            <label>Goal</label>
+            <select name="goal"><option>Weight Loss</option><option>Muscle Gain</option><option>Fitness</option></select>
+            <label>Weight (kg)</label>
+            <input type="text" name="weight" required>
+            <label>Height (cm)</label>
+            <input type="text" name="height" required>
+            <button type="submit">Generate Plan</button>
+        </form>
+        {% if plan %}
+        <div class="plan"><h3>Your Plan:</h3><p>{{ plan }}</p></div>
+        {% endif %}
+    </div>
+</body>
+</html>
